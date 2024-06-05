@@ -1,0 +1,113 @@
+pipeline GoodsTransportByTrainPipeline{
+
+    GoodsTransportByTrainExtractor
+        ->GoodsTransportByTrainTextFileInterpreter
+        ->GoodsTransportByTrainCSVInterpreter
+        ->GoodsTransportByTrainDataSelector
+        ->GoodsTransportByTrainColDeleter
+        ->GoodsTransportByTrainTableInterpreter
+        ->GoodsTransportByTrainLoader;
+
+    block GoodsTransportByTrainExtractor oftype HttpExtractor {
+
+            url: "https://www-genesis.destatis.de/genesis/downloads/00/tables/46131-0014_00.csv";
+    }
+
+    block GoodsTransportByTrainTextFileInterpreter oftype TextFileInterpreter {
+
+        encoding: "latin3";
+    }
+
+    block GoodsTransportByTrainCSVInterpreter oftype CSVInterpreter {
+
+        delimiter: ';';
+
+    }
+
+    block GoodsTransportByTrainDataSelector  oftype CellRangeSelector {
+
+        select: range A9:AU41336;
+
+    }
+
+    block GoodsTransportByTrainColDeleter oftype ColumnDeleter {
+
+        delete: [column F, column G, column H, column I, column J, column K, column L, 
+                column M, column N, column O, column P, column Q, column R, column S, column T, 
+                column U, column V, column W, column X, column Y, column Z, column AA, column AB, 
+                column AC, column AD, column AE, column AF, column AG, column AH, column AI, column AJ, 
+                column AK, column AL, column AM, column AN, column AO, column AP, column AQ, column AR, 
+                column AS];
+
+    }
+
+    valuetype positiveinteger oftype integer {
+        
+        constraints: [
+
+            positiveintegerconstraint,
+
+        ];
+    }
+
+    valuetype germanmonthtype oftype text {
+
+        constraints: [
+            germanmonthconstraint,
+        ];
+
+    }
+
+    valuetype goodsidtype oftype text {
+
+        constraints: [
+            goodsidregex,
+        ];
+    }
+
+    constraint positiveintegerconstraint oftype RangeConstraint {
+
+        lowerBound: 0;
+        lowerBoundInclusive: false;
+
+    }
+
+    constraint germanmonthconstraint oftype AllowlistConstraint {
+
+        allowlist: ["Januar", "Februar","März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+
+    }
+
+
+    constraint goodsidregex oftype RegexConstraint {
+
+        regex: /^NST7-[A-Z0-9]{3}$/;
+
+    }
+
+   
+
+    block GoodsTransportByTrainTableInterpreter oftype TableInterpreter {
+
+        header: false;
+        columns: [
+
+            "year" oftype positiveinteger,
+            "month" oftype germanmonthtype,
+            "goods_id" oftype goodsidtype,
+            "goods_name" oftype text,
+            "goods_source" oftype text,
+            "abroad" oftype positiveinteger,
+            "total" oftype positiveinteger
+
+        ];
+
+    }
+
+    block GoodsTransportByTrainLoader oftype SQLiteLoader {
+
+        table: 'goods';
+        file: './goodsTransportedByTrain.sqlite';
+
+    }
+}
