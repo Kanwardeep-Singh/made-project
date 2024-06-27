@@ -1,0 +1,30 @@
+name: Test-project-pipeline
+
+on:
+    push:
+        branches:
+            - main
+    
+jobs:
+    test-project-pipeline:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Check repository
+          uses: actions/checkout@v2
+
+        - name: Set up Python 3.9
+          uses: actions/setup-python@v2
+          with:
+             python-version: '3.9'
+        
+        - name: Install dependencies
+          run: | 
+            python -m pip install --upgrade pip
+            pip install -r ./project/requirements.txt
+        
+        - name: Set execution
+          run: chmod +x project/tests.sh
+
+        - name: Run Project Pipeline Test
+          run: project/tests.sh
