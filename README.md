@@ -14,11 +14,19 @@ This analysis tried to resolve the following questions:
 
 ## Data Sources
 
--Dataset 1: Emissions by Country Dataset
-This dataset provides an in-depth look into the global CO2emissions at the country-level, allowing for a better understanding of how much each country contributes to the global cumulative human impact on climate.
+### 1. Emissions by Country Dataset
 
--Dataset 2: All Countries Temperature Statistics 1970-2021.
-This dataset provides information on changes in global surface temperature across all countries from 1970 to 2021. It includes data on temperature variations over a 51-year period and is based on information from various sources, including weather stations, satellites, and ocean buoys.
+- **Source**: [Emissions by country Dataset](https://www.kaggle.com/datasets/thedevastator/global-fossil-co2-emissions-by-country-2002-2022)
+- **Data Type**: CSV
+- **License**: CC0: Public Domain
+- **Description**: This dataset provides an in-depth look into the global CO2 emissions at the country-level, allowing for a better understanding of how much each country contributes to the global cumulative human impact on climate. 
+
+### 2. All Countries Temperature Statistics 1970-2021
+- **Source**: [All Countries Temperature Statistics 1970-2021](https://www.kaggle.com/datasets/mdazizulkabirlovlu/all-countries-temperature-statistics-1970-2021)
+- **Data Type**: CSV
+- **License**: CC0: Public Domain
+- **Description**: This dataset provides information on changes in global surface temperature across all countries from 1970 to 2021. It includes data on temperature variations over a 51-year period and is based on information from various sources, including weather stations, satellites, and ocean buoys.
+
 
 ## Analysis
 
