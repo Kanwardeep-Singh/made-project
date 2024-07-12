@@ -1,6 +1,6 @@
 # Exercise Badges
 
-![](https://byob.yarr.is/jvalue/Kanwardeep-Singh/made-project/score_ex1) ![](https://byob.yarr.is/jvalue/Kanwardeep-Singh/made-project/score_ex2) ![](https://byob.yarr.is/jvalue/Kanwardeep-Singh/made-project/score_ex3) ![](https://byob.yarr.is/jvalue/Kanwardeep-Singh/made-project/score_ex4) ![](https://byob.yarr.is/jvalue/Kanwardeep-Singh/made-project/score_ex5)
+![](https://byob.yarr.is/Kanwardeep-Singh/made-project/score_ex1) ![](https://byob.yarr.is/Kanwardeep-Singh/made-project/score_ex2) ![](https://byob.yarr.is/Kanwardeep-Singh/made-project/score_ex3) ![](https://byob.yarr.is/Kanwardeep-Singh/made-project/score_ex4) ![](https://byob.yarr.is/Kanwardeep-Singh/made-project/score_ex5)
 
 # Linking National Emissions to Global Temperature Trends: An Analytical Exploration
 The purpose of this analysis report is to establish and analyze the link between diverse national emissions to global temperature change over the course of 30 years.
